@@ -23,3 +23,75 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.rectangle {
+  width: 850px;
+  height: 600px;
+  background-color: #90EE90;
+  background-image: url('https://dl.digipostal.ir/data/assets/stamp/2900.webp');
+  background-size: 30%;
+  background-position: calc(100% - 20px) calc(10%);
+  background-repeat: no-repeat;
+  box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.2), inset 10px 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  filter: grayscale(50%) saturate(150%);
+  opacity: 0;
+  animation: fadeIn 1s forwards, 2s rotateRectangle 3s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;  /* شروع انیمیشن از حالت مخفی */
+  }
+  100% {
+    opacity: 1;  /* پایان انیمیشن با نمایش کامل */
+  }
+}
+
+@keyframes rotateRectangle {
+  0% {
+    transform: rotateY(0deg);  /* شروع انیمیشن از حالت اولیه */
+  }
+  /*50% {*/
+  /*  transform: rotateY(90deg);  !* نیمه اول چرخش *!*/
+  /*}*/
+  100% {
+    transform: rotateY(180deg);  /* پایان انیمیشن با چرخش و حرکت به جلو/عقب */
+    background-image: none;
+  }
+}
+
+.rectangle img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: auto;
+  opacity: 1;
+  animation: fadeOutLogo 3.7s forwards;
+}
+
+@keyframes fadeOutLogo {
+  90% {
+    opacity: 1;  /* شروع انیمیشن با لوگو به طور کامل نمایان */
+  }
+  100% {
+    opacity: 0;  /* در انتهای انیمیشن لوگو ناپدید می‌شود */
+  }
+}
+
+@media (max-width: 768px) {
+  .rectangle {
+    width: 70vw;
+    height: 25vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .rectangle {
+    width: 80vw;
+    height: 30vh;
+    margin-bottom: 6vh;
+  }
+}
